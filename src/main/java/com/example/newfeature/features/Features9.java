@@ -2,6 +2,7 @@ package com.example.newfeature.features;
 
 import com.example.newfeature.service.impl.NineTestImpl;
 
+import java.io.*;
 import java.util.AbstractMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,17 @@ public class Features9 {
         testList.stream().dropWhile(data->!data.isEmpty()).forEach(System.out::println);
         //iterate方法
         IntStream.iterate(3, x -> x < 10, x -> x+ 3).forEach(System.out::println);
+
+
+        //try-resources-with
+        Reader inputString = new StringReader("message");
+        BufferedReader br = new BufferedReader(inputString);
+        try (br) {
+            System.out.println(br.readLine());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
 
 
